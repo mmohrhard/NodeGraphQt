@@ -74,6 +74,10 @@ def setup_context_menu(graph):
 
     edit_menu.add_separator()
 
+    edit_menu.add_command('Snap to Grid',
+                          graph.snap_to_grid,
+                          '\\')
+
 
 # --- menu command functions. ---
 

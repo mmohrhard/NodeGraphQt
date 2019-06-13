@@ -3,6 +3,7 @@
 import json
 import os
 import re
+import numpy
 
 from NodeGraphQt import QtCore, QtWidgets
 from NodeGraphQt.base.commands import (NodeAddedCmd,
@@ -14,7 +15,7 @@ from NodeGraphQt.base.menu import Menu
 from NodeGraphQt.base.model import NodeGraphModel
 from NodeGraphQt.base.node import NodeObject
 from NodeGraphQt.base.port import Port
-from NodeGraphQt.constants import DRAG_DROP_ID
+from NodeGraphQt.constants import DRAG_DROP_ID, VIEWER_GRID_SIZE
 from NodeGraphQt.widgets.viewer import NodeViewer
 
 
@@ -949,3 +950,45 @@ class NodeGraph(QtCore.QObject):
             str: selected file path.
         """
         return self._viewer.save_dialog(current_dir, ext)
+
+    def snap_to_grid(self, nodes=None):
+        """
+        Snap all nodes to the grid.
+
+        Args:
+            nodes (list[NodeObject] or NodeGraphQt.NodeObject):
+                node object or a list of nodes (default: all nodes)
+        """
+        scene_rect = self._viewer.sceneRect()
+        grid_size = int(scene_rect.width() / VIEWER_GRID_SIZE)
+        grid_array = numpy.array(
+            [i for i in range(0, grid_size + 1, VIEWER_GRID_SIZE)]
+        )
+
+        if isinstance(nodes, NodeObject):
+            nodes = [nodes]
+        nodes = nodes or self.selected_nodes() or self.all_nodes()
+
+
+        global foo
+        foo = not foo
+
+        for node in nodes:
+            x = 0 if foo else 8000
+            print(node.set_x_pos(x))
+
+        # self._undo_stack.beginMacro('snap to grid')
+        # for node in nodes:
+        #     cur_pos = node.pos()
+        #     x_idx = (numpy.abs(grid_array - cur_pos[0])).argmin()
+        #     y_idx = (numpy.abs(grid_array - cur_pos[1])).argmin()
+        #     # pos = grid_array[x_idx], grid_array[y_idx]
+        #     pos = self._viewer.mapToScene(grid_array[x_idx], grid_array[y_idx])
+        #     pos = pos.x(), pos.y()
+        #     self._undo_stack.push(NodeMovedCmd(node, pos, cur_pos))
+        # self._undo_stack.endMacro()
+
+
+        print('+' * 20)
+
+foo = False
