@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Graph &#8212; NodeGraphQt 0.0.12 documentation</title>
+    <title>Graph &#8212; NodeGraphQt 0.0.13 documentation</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/ngqt.css" type="text/css" />
@@ -32,7 +32,7 @@
         <li class="right" >
           <a href="classes.html" title="Classes"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">NodeGraphQt 0.0.12 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">NodeGraphQt 0.0.13 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="classes.html" accesskey="U">Classes</a> &#187;</li> 
       </ul>
     </div>  
@@ -44,7 +44,7 @@
             
   <div class="section" id="graph">
 <h1>Graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h1>
-<p><strong>Inherited from:</strong> <a class="reference external" href="https://doc.qt.io/qtforpython/PySide2/QtCore/QObject.html#PySide2.QtCore.QObject" title="(in PySide v5.13.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PySide2.QtCore.QObject</span></code></a></p>
+<p><strong>Inherited from:</strong> <a class="reference external" href="https://doc.qt.io/qtforpython/PySide2/QtCore/QObject.html#PySide2.QtCore.QObject" title="(in PySide v5.13.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PySide2.QtCore.QObject</span></code></a></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">NodeGraph</span></code> class is the main controller for managing all nodes.</p>
 <a class="reference internal image-reference" href="_images/graph.png"><img alt="_images/graph.png" src="_images/graph.png" style="width: 60%;" /></a>
 <hr class="docutils" />
@@ -256,6 +256,17 @@ function to <code class="xref py py-meth docutils literal notranslate"><span cla
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>nodes</strong> (<em>list</em><em>[</em><a class="reference internal" href="nodes.html#NodeGraphQt.BaseNode" title="NodeGraphQt.BaseNode"><em>NodeGraphQt.BaseNode</em></a><em>]</em>) – list of node instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="NodeGraphQt.NodeGraph.deserialize_session">
+<code class="descname">deserialize_session</code><span class="sig-paren">(</span><em>layout_data</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeGraph.deserialize_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load node graph session from a dictionary object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>layout_data</strong> (<em>dict</em>) – dictionary object containing a node session.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -644,7 +655,8 @@ the node graph.</p>
 <dd><p>Set node graph pipes to be drawn straight or curved by default
 all pipes are set curved. (default=0)</p>
 <p><code class="docutils literal notranslate"><span class="pre">NodeGraphQt.constants.PIPE_LAYOUT_CURVED</span></code> = 0
-<code class="docutils literal notranslate"><span class="pre">NodeGraphQt.constants.PIPE_LAYOUT_STRAIGHT</span></code> = 1</p>
+<code class="docutils literal notranslate"><span class="pre">NodeGraphQt.constants.PIPE_LAYOUT_STRAIGHT</span></code> = 1
+<code class="docutils literal notranslate"><span class="pre">NodeGraphQt.constants.PIPE_LAYOUT_ANGLE</span></code> = 2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>style</strong> (<em>int</em>) – pipe style.</p>
@@ -809,7 +821,7 @@ function to <code class="xref py py-meth docutils literal notranslate"><span cla
         <li class="right" >
           <a href="classes.html" title="Classes"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">NodeGraphQt 0.0.12 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">NodeGraphQt 0.0.13 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="classes.html" >Classes</a> &#187;</li> 
       </ul>
     </div>

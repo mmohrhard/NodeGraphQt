@@ -16,7 +16,7 @@ from NodeGraphQt.base.node import NodeObject
 from NodeGraphQt.base.port import Port
 from NodeGraphQt.constants import (DRAG_DROP_ID,
                                    PIPE_LAYOUT_CURVED,
-                                   PIPE_LAYOUT_STRAIGHT)
+                                   PIPE_LAYOUT_STRAIGHT, PIPE_LAYOUT_ANGLE)
 from NodeGraphQt.widgets.viewer import NodeViewer
 
 
@@ -392,11 +392,14 @@ class NodeGraph(QtCore.QObject):
 
         ``NodeGraphQt.constants.PIPE_LAYOUT_CURVED`` = 0
         ``NodeGraphQt.constants.PIPE_LAYOUT_STRAIGHT`` = 1
+        ``NodeGraphQt.constants.PIPE_LAYOUT_ANGLE`` = 2
 
         Args:
             style (int): pipe style.
         """
-        pipe_default = max([PIPE_LAYOUT_CURVED, PIPE_LAYOUT_STRAIGHT])
+        pipe_default = max([PIPE_LAYOUT_CURVED,
+                            PIPE_LAYOUT_STRAIGHT,
+                            PIPE_LAYOUT_ANGLE])
         style = PIPE_LAYOUT_STRAIGHT if style > pipe_default else style
         self._viewer.set_pipe_layout(style)
 
@@ -810,6 +813,17 @@ class NodeGraph(QtCore.QObject):
             dict: serialized session of the current node layout.
         """
         return self._serialize(self.all_nodes())
+
+    def deserialize_session(self, layout_data):
+        """
+        Load node graph session from a dictionary object.
+
+        Args:
+            layout_data (dict): dictionary object containing a node session.
+        """
+        self.clear_session()
+        self._deserialize(layout_data)
+        self._undo_stack.clear()
 
     def save_session(self, file_path):
         """
