@@ -651,12 +651,15 @@ the node graph.</p>
 
 <dl class="method">
 <dt id="NodeGraphQt.NodeGraph.set_pipe_style">
-<code class="descname">set_pipe_style</code><span class="sig-paren">(</span><em>style=None</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeGraph.set_pipe_style" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set node graph pipes to be drawn straight or curved by default
-all pipes are set curved. (default=0)</p>
-<p><code class="docutils literal notranslate"><span class="pre">NodeGraphQt.constants.PIPE_LAYOUT_CURVED</span></code> = 0
-<code class="docutils literal notranslate"><span class="pre">NodeGraphQt.constants.PIPE_LAYOUT_STRAIGHT</span></code> = 1
-<code class="docutils literal notranslate"><span class="pre">NodeGraphQt.constants.PIPE_LAYOUT_ANGLE</span></code> = 2</p>
+<code class="descname">set_pipe_style</code><span class="sig-paren">(</span><em>style=1</em><span class="sig-paren">)</span><a class="headerlink" href="#NodeGraphQt.NodeGraph.set_pipe_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set node graph pipes to be drawn as straight, curved or angled.
+By default all pipes are set curved.</p>
+<dl class="simple">
+<dt>Pipe Styles:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">NodeGraphQt.constants.PIPE_LAYOUT_CURVED</span></code>
+<code class="docutils literal notranslate"><span class="pre">NodeGraphQt.constants.PIPE_LAYOUT_STRAIGHT</span></code>
+<code class="docutils literal notranslate"><span class="pre">NodeGraphQt.constants.PIPE_LAYOUT_ANGLE</span></code></p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>style</strong> (<em>int</em>) – pipe style.</p>
