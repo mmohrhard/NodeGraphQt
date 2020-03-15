@@ -91,6 +91,10 @@ class NodeModel(object):
             'outputs': NODE_PROP,
         }
 
+    def __repr__(self):
+        return '<{}(\'{}\') @ {}>'.format(
+            self.__class__.__name__, self.name, self.id)
+
     def add_property(self, name, value, items=None, range=None,
                      widget_type=NODE_PROP, tab='Properties'):
         """
