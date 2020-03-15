@@ -37,6 +37,7 @@ class NodeViewer(QtWidgets.QGraphicsView):
     node_selected = QtCore.Signal(str)
     node_double_clicked = QtCore.Signal(str)
     data_dropped = QtCore.Signal(QtCore.QMimeData, QtCore.QPoint)
+    key_pressed = QtCore.Signal(QtGui.QKeyEvent)
 
     def __init__(self, parent=None):
         super(NodeViewer, self).__init__(parent)
@@ -330,6 +331,7 @@ class NodeViewer(QtWidgets.QGraphicsView):
             self.SHIFT_state = True
 
         super(NodeViewer, self).keyPressEvent(event)
+        self.key_pressed.emit(event)
 
     def keyReleaseEvent(self, event):
         self.ALT_state = event.modifiers() == QtCore.Qt.AltModifier
